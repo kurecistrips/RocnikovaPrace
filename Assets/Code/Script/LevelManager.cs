@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
     }
 
     private void Start(){
-        currency = 100;
+        currency = 1000;
         BaseHealth = maxHealth;
         totalTime = 0f;
         
