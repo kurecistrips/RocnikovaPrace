@@ -9,7 +9,7 @@ public class BuildManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private Tower[] towers;
 
-    private int selectedTower = 0;
+    public int selectedTower = 0;
 
     private void Awake(){
         main = this;

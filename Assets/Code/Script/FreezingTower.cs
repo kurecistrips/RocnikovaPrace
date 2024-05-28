@@ -3,11 +3,15 @@ using System.Collections;
 using UnityEditor.Experimental.GraphView;*/
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class FreezingTower : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private LayerMask enemyMask;
+    [SerializeField] private GameObject freezingTwrUI;
+    [SerializeField] private Button upgradeBtn;
+    [SerializeField] private Button destroyBtn;
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 3f;
@@ -15,6 +19,10 @@ public class FreezingTower : MonoBehaviour
     [SerializeField] private float freeteTime = 1f;
 
     private float timeUntilFire;
+
+    private void Start(){
+        destroyBtn.onClick.AddListener(Destroy);
+    }
 
     private void Update() {           
         timeUntilFire += Time.deltaTime;
@@ -45,6 +53,22 @@ public class FreezingTower : MonoBehaviour
         yield return new WaitForSeconds(freeteTime);
 
         em.ResetSpeed();
+    }
+
+    public void OpenFreezTowerUI(){
+        freezingTwrUI.SetActive(true);
+    }
+
+    public void CloseFreezTowerUI(){
+        freezingTwrUI.SetActive(false);
+    }
+
+    public void Upgrade(){
+
+    }
+
+    public void Destroy(){
+        Destroy(gameObject);
     }
 
     /*private void OnDrawGizmosSelected(){

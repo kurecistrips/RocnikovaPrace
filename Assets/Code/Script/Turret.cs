@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 public class Turret : MonoBehaviour
 {
@@ -11,19 +12,40 @@ public class Turret : MonoBehaviour
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
+    [SerializeField] private GameObject towerUI;
+    [SerializeField] private Button upgradeBtn;
+    [SerializeField] private Button sellBtn;
+    [SerializeField] private GameObject rangeVis;
+
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 5f;
     [SerializeField] private float rotationSpeed = 500f;
     [SerializeField] private float bps = 1f; //Bullets Per Second
+    [SerializeField] private int baseUpgradeCost = 100;
+
 
     private Transform target;
+
+    public static Turret main;
+
+    public int lvl = 1;
+    private float baseBps;
+    private float baseTargetingRange;
+
     private float timeUntilFire;
 
+    private void Start(){
+        baseBps = bps;
+        baseTargetingRange = targetingRange;
+        sellBtn.onClick.AddListener(Sell);
+        upgradeBtn.onClick.AddListener(Upgrade);
+    }
+
+    private void Awake(){
+        main = this;
+    }
     
-
-
-
     private void Update() {
         if (target == null){
             FindTarget();
@@ -71,7 +93,49 @@ public class Turret : MonoBehaviour
             target = hits[0].transform;
         }
     }
+    
+    public void OpenTowerUI(){
+        towerUI.SetActive(true);
+    }
 
+    public void CloseTowerUI(){
+        towerUI.SetActive(false);
+    }
+
+    public void Upgrade(){
+        if (Cost() > LevelManager.main.currency) return;
+
+        if (lvl < 5){
+            LevelManager.main.Spendcurrency(Cost());
+
+            lvl++;
+
+            bps = BPSIncrease();
+            targetingRange = RangeIncrease();
+            Debug.Log(lvl);
+        }
+        else{
+            Debug.Log("Max level reached: " + lvl);
+        }
+            
+    }
+
+    public void Sell(){
+        Destroy(gameObject);
+        
+    }
+
+    private int Cost(){
+        return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(lvl, 0.6f));
+    }
+    
+    private float BPSIncrease(){
+        return baseBps * Mathf.Pow(lvl, 0.5f);
+    }
+
+    private float RangeIncrease(){
+        return baseTargetingRange * Mathf.Pow(lvl, 0.3f);
+    }
     /*private void OnDrawGizmosSelected(){
         Handles.color = Color.cyan;
         Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);

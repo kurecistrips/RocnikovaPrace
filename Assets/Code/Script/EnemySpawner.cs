@@ -25,6 +25,10 @@ public class EnemySpawner : MonoBehaviour
 
     public int currentWave = 0;
 
+    //public int maxWaves = 5;
+
+    //private int enemiesAmount;
+
     //private int count;
     private float baseWaveTimer = 45f;
     public float waveTimer;
@@ -70,7 +74,7 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenWaves);
 
         isSpawning = true;
-        enemiesLeftToSpawn = EnemiesPerWave();
+        enemiesLeftToSpawn = EnemiesPerWave() /*enemiesAmount*/;
         eps = EnemiesPerSecond();
         waveTimer = baseWaveTimer;
     }
@@ -82,11 +86,12 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(StartWave());
     }
 
-    private void SpawnEnemy(){
-       
+    private void SpawnEnemy(/*int enemyIndex, int quantity*/){
+        //enemiesAmount = quantity;
         int index = Random.Range(0, enemyPrefabs.Length);
-        GameObject prefabToSpawn = enemyPrefabs[index];
+        GameObject prefabToSpawn = enemyPrefabs[/*enemyIndex*/index];
         Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
+  
     }
 
     private int EnemiesPerWave(){
@@ -95,9 +100,30 @@ public class EnemySpawner : MonoBehaviour
 
     private float EnemiesPerSecond(){
         return Mathf.Clamp(enemisePerSecond * Mathf.Pow(currentWave, difficultyScalingFactor), 0, enemisePerSecondCap);
-    
-    
     }
 
-    
+    /*private void Waves(){
+        for (int i = 0; i < maxWaves; i++){
+            if (currentWave == 1){
+                SpawnEnemy(0, 5);
+            }
+            else if (currentWave == 2){
+                SpawnEnemy(0, 10);
+            }
+            else if (currentWave == 3){
+                
+                SpawnEnemy(1, 6);
+            }
+            else if (currentWave == 4){
+                SpawnEnemy(1, 6);
+                SpawnEnemy(0, 10);
+            }
+            else if (currentWave == 5){
+                SpawnEnemy(0, 20);
+                SpawnEnemy(1,12);
+            }
+        }
+
+
+    }*/
 }

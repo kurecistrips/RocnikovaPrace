@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Plot : MonoBehaviour
@@ -10,7 +11,12 @@ public class Plot : MonoBehaviour
        
     
     private GameObject tower;
+    public Turret turret;
+    public RocketTurret rckTurret;
+    public Farm farm;
+    public FreezingTower freezingTwr;
     private Color startColor;
+
 
     private void Start() {
         startColor = sr.color;
@@ -25,7 +31,26 @@ public class Plot : MonoBehaviour
     }
      
     private void OnMouseDown() {
-        if (tower != null) return;
+        if (UIManager.main.IsHovering()) return;
+
+        if (tower != null){
+            if (turret != null)
+            {
+                turret.OpenTowerUI();
+            }
+            // Check if the tower has a RocketTurret component and open its upgrade UI
+            else if (rckTurret != null)
+            {
+                rckTurret.OpenRocketTowerUI();
+            }
+            else if (farm != null){
+                farm.OpenFarmUI();
+            }
+            else if (freezingTwr != null){
+                freezingTwr.OpenFreezTowerUI();
+            }
+            return;
+        }
 
         Tower towerToBuild = BuildManager.main.GetSelectedTower();
 
@@ -37,6 +62,11 @@ public class Plot : MonoBehaviour
         LevelManager.main.Spendcurrency(towerToBuild.cost);
 
         tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+        turret = tower.GetComponent<Turret>();
+        rckTurret = tower.GetComponent<RocketTurret>();
+        farm = tower.GetComponent<Farm>();
+        freezingTwr = tower.GetComponent<FreezingTower>();
+    
     }
 
 

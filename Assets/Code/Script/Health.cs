@@ -1,20 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Health : MonoBehaviour
 {
+
     [Header("Attributes")]
-    [SerializeField] private int hitPoints = 2;
+    [SerializeField] public int maxHitPoints;
+    
     [SerializeField] private int currencyWorth = 50;
 
+    public static Health main;
     private bool isDestroyed = false;
 
+    public int baseHitPoints;
+
+    private void Awake(){
+        main = this;
+    }
+    private void Start(){
+        baseHitPoints = maxHitPoints;
+    }
+    
 
     public void TakeDamage(int dmg){
-        hitPoints -= dmg;
+        baseHitPoints -= dmg;
 
-        if (hitPoints <= 0 && !isDestroyed){
+        if (baseHitPoints <= 0 && !isDestroyed){
             EnemySpawner.onEnemyDestroy.Invoke();
             LevelManager.main.IncreaseCurrency(currencyWorth);
             isDestroyed = true;

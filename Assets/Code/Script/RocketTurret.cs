@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+using System.ComponentModel.Design.Serialization;
 
 public class RocketTurret : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class RocketTurret : MonoBehaviour
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject rocketPrefab;
     [SerializeField] private Transform firingPoint;
+    [SerializeField] private GameObject rckTowerUI;
+    [SerializeField] private Button upgradeBtn;
+    [SerializeField] private Button sellBtn;
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 5f;
@@ -19,6 +23,11 @@ public class RocketTurret : MonoBehaviour
 
     private Transform target;
     private float timeUntilFire;
+
+
+    private void Start(){
+        sellBtn.onClick.AddListener(Sell);
+    }
 
     private void Update() {
         if (target == null){
@@ -67,6 +76,23 @@ public class RocketTurret : MonoBehaviour
             target = hits[0].transform;
         }
     }
+
+    public void OpenRocketTowerUI(){
+        rckTowerUI.SetActive(true);
+    }
+
+    public void CloseRocketTowerUI(){
+        rckTowerUI.SetActive(false);
+    }
+
+    public void Upgrade(){
+
+    }
+
+    public void Sell(){
+        Destroy(gameObject);
+    }
+
 
     /*private void OnDrawGizmosSelected(){
         Handles.color = Color.cyan;

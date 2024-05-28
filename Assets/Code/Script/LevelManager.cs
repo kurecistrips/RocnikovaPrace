@@ -29,13 +29,13 @@ public class LevelManager : MonoBehaviour
     }
 
     private void Start(){
-        currency = 1000;
+        currency = 10000;
         BaseHealth = maxHealth;
         totalTime = 0f;
         
     }
     private void Update(){
-        if (BaseHealth <= 0){
+        if (BaseHealth <= 0 /*|| EnemySpawner.main.currentWave > EnemySpawner.main.maxWaves*/){
             GameOver();
         }
         totalTime += Time.deltaTime;
