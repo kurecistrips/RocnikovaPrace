@@ -13,10 +13,12 @@ public class Farm : MonoBehaviour
     [SerializeField] private Button destroyBtn;
     [SerializeField] private int baseUpgradeCost = 125;
 
+    public static Farm main;
+
     private bool placedDuringWave = false;
     private bool giveAway = false;
 
-    private int lvl = 1;
+    public int lvl = 1;
     private int baseMoneyPerWave;
 
     

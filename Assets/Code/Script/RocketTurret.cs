@@ -21,8 +21,11 @@ public class RocketTurret : MonoBehaviour
     [SerializeField] private float rotationSpeed = 500f;
     [SerializeField] private float rps = 1.5f; //Rockets Per Second
 
+    public static RocketTurret main;
     private Transform target;
     private float timeUntilFire;
+
+    public int lvl = 1;
 
 
     private void Start(){

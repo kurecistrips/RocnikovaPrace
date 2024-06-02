@@ -441,7 +441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6090661073595799476
 RectTransform:
   m_ObjectHideFlags: 0
@@ -538,7 +538,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouse_over: 0
-  imagetxt: {fileID: 0}
   levelTxtUI: {fileID: 6502795853581146069}
 --- !u!1 &2996380026877390399
 GameObject:
@@ -821,7 +820,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7911709890970814507}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.011, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -840,7 +839,7 @@ GameObject:
   - component: {fileID: 6440044469873718173}
   - component: {fileID: 6502795853581146069}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Basic Turret Level vis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1036,7 +1035,7 @@ SpriteRenderer:
   m_SortingLayerID: 516133141
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1052501374, guid: 5997c06ac000aef4fb91094369530ed7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7fa809a9174949c43a1dde607baa0e38, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1153,7 +1152,7 @@ SpriteRenderer:
   m_SortingLayerID: 516133141
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: -463334334, guid: 5997c06ac000aef4fb91094369530ed7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 672a2c08bed7ffb4ba4017492f2f5332, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

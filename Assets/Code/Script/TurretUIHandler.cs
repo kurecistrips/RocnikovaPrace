@@ -5,11 +5,11 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class TowerUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class TurretUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public bool mouse_over = false;
 
-    [SerializeField] TextMeshProUGUI levelTxtUI;
+    [SerializeField] private TextMeshProUGUI levelTxtUI;
 
     private void OnGUI(){
         levelTxtUI.text = "Level: " + Turret.main.lvl.ToString();

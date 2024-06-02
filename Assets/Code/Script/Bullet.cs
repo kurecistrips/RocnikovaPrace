@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -15,6 +16,10 @@ public class Bullet : MonoBehaviour
 
     public void SetTarget(Transform _target){
         target = _target;
+    }
+
+    private void Update(){
+
     }
 
     private void FixedUpdate(){
