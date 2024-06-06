@@ -38,7 +38,6 @@ public class Plot : MonoBehaviour
             {
                 turret.OpenTowerUI();
             }
-            // Check if the tower has a RocketTurret component and open its upgrade UI
             else if (rckTurret != null)
             {
                 rckTurret.OpenRocketTowerUI();

@@ -12,10 +12,20 @@ public class Rocket : MonoBehaviour
     [SerializeField] private int rocketDamage = 10;
     [SerializeField] private float rocketRadius = 3f;
 
+    private float timerForDestruction = 4.5f;
+
     private Transform target;
 
     public void SetTarget(Transform _target){
         target = _target;
+    }
+
+    private void Update(){
+        timerForDestruction -= Time.deltaTime;
+        if(timerForDestruction <= 0){
+            
+            Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate(){
@@ -23,6 +33,9 @@ public class Rocket : MonoBehaviour
         Vector2 direction = (target.position - transform.position).normalized;
 
         rb.velocity = direction * rocketSpeed;
+        
+        float bRot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, bRot + 90);
     }
     
     private void OnCollisionEnter2D(Collision2D other){

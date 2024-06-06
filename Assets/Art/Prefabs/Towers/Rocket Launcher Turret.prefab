@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 650625397205628430}
   - component: {fileID: 1989024444255549156}
   m_Layer: 0
-  m_Name: Test Turret
+  m_Name: Rocket Launcher Turret
   m_TagString: Rocket Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -296,8 +296,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7054222879192174207}
-  m_RootOrder: 1
+  m_Father: {fileID: 1383827025952929651}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -434,7 +434,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1383827025952929651}
-  - {fileID: 5010305648970045254}
   m_Father: {fileID: 650625397205628430}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -841,6 +840,7 @@ RectTransform:
   m_Children:
   - {fileID: 5765640572979126543}
   - {fileID: 71527298888744097}
+  - {fileID: 5010305648970045254}
   m_Father: {fileID: 7054222879192174207}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
