@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 2655311317063724870}
   - component: {fileID: 2655311317063724871}
   m_Layer: 0
-  m_Name: Light Machine Turret
+  m_Name: Gatling Turret
   m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

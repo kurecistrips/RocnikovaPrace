@@ -241,13 +241,13 @@ MonoBehaviour:
   - name: Freezing Tower
     cost: 225
     prefab: {fileID: 4246784882804591369, guid: 804fde0096df37042ab1d158383fa6fc, type: 3}
-  - name: Missile Turret
+  - name: Rocket Turret
     cost: 350
     prefab: {fileID: 2780967985257365919, guid: 4838248c71b4b5f42b01565557d683cb, type: 3}
   - name: Sniper Turret
     cost: 200
     prefab: {fileID: 4068560627453898665, guid: 0818011259fadf7428c6043f595bc264, type: 3}
-  - name: Light Machine Turret
+  - name: Gatling Turret
     cost: 450
     prefab: {fileID: 2655311317063724869, guid: 4b64a6ed380aa4742b58523d1eeed6c9, type: 3}
   - name: Farn Tower
@@ -8221,7 +8221,7 @@ GameObject:
   - component: {fileID: 760362887}
   - component: {fileID: 760362886}
   m_Layer: 5
-  m_Name: Light M T Cost
+  m_Name: Gatling T Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8643,7 +8643,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Missile Battery
+  m_text: 'Rocket Turret
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10642,7 +10644,7 @@ GameObject:
   - component: {fileID: 1061972652}
   - component: {fileID: 1061972651}
   m_Layer: 5
-  m_Name: Missile Battery
+  m_Name: Rocket Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17024,7 +17026,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Light Machine Turret
+  m_text: Gatling Turret
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17347,7 +17349,7 @@ GameObject:
   - component: {fileID: 1803237344}
   - component: {fileID: 1803237343}
   m_Layer: 5
-  m_Name: Missile T Cost
+  m_Name: Rocket T Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24977,7 +24979,7 @@ GameObject:
   - component: {fileID: 2083424097}
   - component: {fileID: 2083424096}
   m_Layer: 5
-  m_Name: Light Machine Turret
+  m_Name: Gatling Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
